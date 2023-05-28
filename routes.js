@@ -155,9 +155,9 @@ router.get('/incidents', (req, res) => {
 
 // Ruta para crear un nuevo incidente
 router.post('/incidents', (req, res) => {
-  const { name, description } = req.body;
-  const query = 'INSERT INTO INCIDENT (INCI_NAME, INCI_DESCRIPTION) VALUES (?, ?)';
-  const values = [name, description];
+  const { name, task_id } = req.body;
+  const query = 'INSERT INTO INCIDENT (INCI_NAME, TASK_ID) VALUES (?, ?)';
+  const values = [name, task_id];
 
   db.query(query, values, (error, result) => {
     if (error) {
